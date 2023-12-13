@@ -3,7 +3,15 @@
 name: Qwiet Scan
 
 on:
+  pull_request:
   workflow_dispatch:
+  push:
+    # We recommend triggering a scan when merging to your default branch
+    # as a best practice, especially if you'd like to compare the results
+    # of two scans (e.g., a feature branch against the default branch)
+    branches:
+      - main
+      - master
 jobs:
   build-scan:
     runs-on: ubuntu-20.04
